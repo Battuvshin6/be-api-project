@@ -102,3 +102,250 @@ dist
 
 # TernJS port file
 .tern-port
+
+
+
+# // FOOD
+# // router.get("/category", (req, res) => {
+# //   category.find({}, function (err, data) {
+# //     if (err) {
+# //       throw err;
+# //     } else {
+# //       return res.json({
+# //         success: true,
+# //         data: data,
+# //       });
+# //     }
+# //   });
+# // });
+
+# // router.post("/category", (req, res, next) => {
+# //   const reqBody = req.body;
+# //   let newCategory = new category({
+# //     _id: new mongoose.Types.ObjectId(),
+# //     category: req.body.category,
+# //     color: req.body.color,
+# //   });
+# //   newCategory
+# //     .save()
+# //     .then((data) => {
+# //       res.status(201).json({
+# //         message: "Handling POST requests to /category",
+# //         data: data,
+# //       });
+# //     })
+# //     .catch((err) => {
+# //       console.log(err);
+# //       res.status(201).json({
+# //         message: "Handling POST requests to /error",
+# //         data: err,
+# //       });
+# //     });
+# // });
+
+# // router.delete("/category/:id", (req, res) => {
+# //   const iD = req.params.id;
+# //   console.log(iD);
+# //   category
+# //     .findByIdAndDelete({ _id: iD })
+# //     .then((data) => {
+# //       res.status(200).json({
+# //         message: "Deleted successfully",
+# //         data: data,
+# //       });
+# //     })
+# //     .catch((err) => {
+# //       console.log(err);
+# //       res.status(500).json({
+# //         message: "Error during delete",
+# //         data: err,
+# //       });
+# //     });
+# // });
+
+# // router.put("/category/:id", (req, res) => {
+# //   const id = req.params.id;
+# //   const body = req.body;
+# //   console.log(body);
+# //   category
+# //     .findByIdAndUpdate({ _id: id }, body, { new: true })
+# //     .then((data) => {
+# //       res.status(200).json({
+# //         message: "Successfully updated",
+# //         data: data,
+# //       });
+# //     })
+# //     .catch((err) => {
+# //       res.status(400).json({
+# //         message: "Failed to uodate",
+# //         data: err,
+# //       });
+# //     });
+# // });
+
+# //USERS
+
+# // router.get("/user", (req, res) => {
+# //   users.find({}, (err, data) => {
+# //     if (err) {
+# //       throw err;
+# //     } else {
+# //       return res.json({
+# //         status: true,
+# //         data: data,
+# //       });
+# //     }
+# //   });
+# // });
+
+# // router.post("/user", (req, res) => {
+# //   let newUser = new users({
+# //     _id: new mongoose.Types.ObjectId(),
+# //     name: req.body.name,
+# //     email: req.body.email,
+# //     phone: req.body.phone,
+# //     password: req.body.password,
+# //     role_id: req.body.role_id,
+# //     created_date: req.body.created_date,
+# //     last_activity: req.body.last_activity,
+# //   });
+# //   newUser
+# //     .save()
+# //     .then((data) => [
+# //       res.status(200).json({
+# //         success: true,
+# //         data: data,
+# //       }),
+# //     ])
+# //     .catch((err) => {
+# //       res.status(500).json({
+# //         status: false,
+# //         data: err,
+# //       });
+# //     });
+# // });
+
+# // router.delete("/user/:id", (req, res) => {
+# //   const id = req.params.id;
+# //   const body = req.body;
+# //   users
+# //     .findByIdAndDelete({ _id: id }, { new: true })
+# //     .then((data) => {
+# //       res.status(200).json({
+# //         success: true,
+# //         data: data,
+# //       });
+# //     })
+# //     .catch((err) => {
+# //       res.status(500).json({
+# //         sucess: false,
+# //         data: err,
+# //       });
+# //     });
+# // });
+# // router.put("/user/:id", (req, res) => {
+# //   const id = req.params.id;
+# //   const body = req.body;
+# //   users
+# //     .findOneAndUpdate({ _id: id }, body, {
+# //       new: true,
+# //     })
+# //     .then((data) => {
+# //       res.status(200).json({
+# //         success: true,
+# //         data: data,
+# //       });
+# //     })
+# //     .catch((err) => {
+# //       res.status(400).json({
+# //         success: false,
+# //         data: err,
+# //       });
+# //     });
+# // });
+
+
+# //FOOD
+# // router.get("/food", (req, res) => {
+# //   foodModel.find({ _id: req.query.id }, (err, data) => {
+# //     if (err) {
+# //       throw err;
+# //     } else {
+# //       return res.json({
+# //         success: true,
+# //         data: data,
+# //       });
+# //     }
+# //   });
+# // });
+
+# // router.post("/food", (req, res) => {
+# //   const body = req.body;
+# //   let newFood = new foodModel({
+# //     sales: req.body.sales,
+# //     _id: new mongoose.Types.ObjectId(),
+# //     category_id: req.body.category_id,
+# //     name: req.body.name,
+# //     price: req.body.price,
+# //     portion: req.body.portion,
+# //     stock: req.body.stock,
+# //     image: req.body.image,
+# //     tumb_img: req.body.tumb_img,
+# //     ingredients: req.body.ingredients,
+# //     discount: req.body.discount,
+# //     category: req.body.category,
+# //   });
+# //   newFood
+# //     .save()
+# //     .then((data) => {
+# //       res.status(200).json({
+# //         success: true,
+# //         data: data,
+# //       });
+# //     })
+# //     .catch((err) => {
+# //       res.status(201).json({
+# //         message: "Handling POST requests to /error",
+# //         data: err,
+# //       });
+# //     });
+# // });
+
+# // router.delete("/food/:id", (req, res) => {
+# //   const id = req.params.id;
+# //   const body = req.body;
+# //   foodModel
+# //     .findByIdAndDelete({ _id: id }, { new: true })
+# //     .then((data) => {
+# //       res.status(200).json({
+# //         success: false,
+# //         data: data,
+# //       });
+# //     })
+# //     .catch((err) => {
+# //       res.status(500).json({
+# //         sucess: false,
+# //         data: err,
+# //       });
+# //     });
+# // });
+# // router.put("/food/:id", (req, res) => {
+# //   const id = req.params.id;
+# //   const body = req.body;
+# //   foodModel
+# //     .findOneAndUpdate({ _id: id }, body, {
+# //       new: true,
+# //     })
+# //     .then((data) => {
+# //       res.status(200).json({
+# //         success: true,
+# //         data: data,
+# //       });
+# //     })
+# //     .catch((err) => {
+# //       res.status(400).json({
+# //         success: false,
+# //         data: err,
+# //       });
+# //     });
+# // });

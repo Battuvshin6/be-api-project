@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-const category = mongoose.Schema({
+const categorySchema = mongoose.Schema({
   _id: mongoose.Schema.Types.ObjectId,
-  name: {
+  category: {
     type: String,
     required: [true, "Enter the name!"],
   },
   color: String,
 });
 
-module.exports = mongoose.model("Category", category);
+module.exports = mongoose.model("Category", categorySchema);

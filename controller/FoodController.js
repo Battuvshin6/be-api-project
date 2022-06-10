@@ -5,7 +5,6 @@ const mongoose = require("mongoose");
 
 const getFood = (req, res, next) => {
   const id = req.query.id;
-  console.log(id);
   foodModel.find({ _id: id }, (err, data) => {
     if (err) {
       throw err;

@@ -21,7 +21,7 @@ const register = async (req, res, next) => {
   const data = req.body;
   const oldUser = await users.findOne({ email: data.email });
   if (oldUser) {
-    return res.status(400).json({
+    return res.status(401).json({
       status: "User already exists!",
       success: false,
     });
@@ -50,7 +50,8 @@ const register = async (req, res, next) => {
   });
 };
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
+  console.log(req.body);
   // Our login logic starts here
   try {
     // Get user input
@@ -58,7 +59,7 @@ const login = async (req, res) => {
 
     // Validate user input
     if (!(email && password)) {
-      return res.status(400).json({
+      return res.status(403).json({
         success: false,
         status: "Утгуудаа бүрэн оруулна уу.",
         updated: 1,
@@ -85,7 +86,7 @@ const login = async (req, res) => {
           token: token,
         });
       } else {
-        return res.status(400).json({
+        return res.status(401).json({
           success: false,
           status: "Нууц үг нэр хоорондоо таарахгүй байна.",
         });

@@ -16,7 +16,6 @@ const getCategories = (req, res, next) => {
   });
 };
 const createCategories = (req, res, next) => {
-  const reqBody = req.body;
   let newCategory = new category({
     _id: new mongoose.Types.ObjectId(),
     category: req.body.category,
@@ -35,7 +34,6 @@ const createCategories = (req, res, next) => {
 
 const deleteCategories = (req, res, next) => {
   const iD = req.params.id;
-  console.log(iD);
   category
     .findByIdAndDelete({ _id: iD })
     .then((data) => {

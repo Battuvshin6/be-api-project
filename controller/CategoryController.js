@@ -47,7 +47,6 @@ const deleteCategories = (req, res, next) => {
 const updateCategories = (req, res, next) => {
   const id = req.params.id;
   const body = req.body;
-  console.log(body);
   category
     .findByIdAndUpdate({ _id: id }, body, { new: true })
     .then((data) => {

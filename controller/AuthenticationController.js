@@ -12,7 +12,7 @@ const register = async (req, res, next) => {
       .status(400)
       .json({ success: false, status: "Та аль хэдийн бүртгүүлсэн байна" });
   } else {
-    let hashedPassword = await bcrypt.hashSync(data.password, 10);
+    let hashedPassword = await bcrypt.hash(data.password, 10);
     data.password = hashedPassword;
     data.role == 0 ? (data.role_id = 1) : (data.role_id = data.role);
     data.created_date = Date("Y-m-d");
@@ -69,7 +69,7 @@ const login = async (req, res, next) => {
       });
     } else {
       // Validate if user exist in our database
-      const user = await users.findOne({ email });
+      const user = await Users.findOne({ email });
       if (user && (await bcrypt.compare(password, user.password))) {
         // Create token
         const token = jwt.sign(
